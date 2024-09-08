@@ -1,34 +1,65 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import Button from './Button';
 
 // Image Card: Card dengan gambar di bagian atas atau samping.
 // Clickable Card: Card yang bisa di-klik dengan hover effect.
 // Detailed Card: Card yang lebih kompleks, mungkin dengan badge, rating, atau tag.
 
-const Card = ({ tittle = 'Card', text, children, className = '', onClick }) => (
-  <article className={`max-w-xl rounded w-fit p-base ${className}`} onClick={onClick}>
+const Card = ({
+  base,
+  action,
+  tittle = 'Card',
+  subtittle,
+  headline,
+  subheadline,
+  text,
+  children,
+  footer,
+  btn,
+  className = '',
+  onClick,
+}) => (
+  <article
+    className={`${!base && 'bg-brand/10'} flex flex-col max-w-xl rounded w-fit p-lg gap-base `}
+    onClick={onClick}
+  >
+    <header className='space-y-base'>
+      <div>
+        <h3 className='leading-none'>{tittle}</h3>
+        <p>{subtittle}</p>
+      </div>
+
+      {headline && (
+        <div className='flex items-end'>
+          <h2 className='self-start leading-none'>{headline}</h2>
+          <p>{subheadline}</p>
+        </div>
+      )}
+    </header>
+
     {children || (
-      <>
-        <header>
-          <h3>{tittle}</h3>
-        </header>
-        <main>
-          <p>
-            {text ||
-              `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis obcaecati architecto velit
-          eius neque ratione qui nemo ab aliquam numquam corporis, ipsum voluptatum ea nulla iste.
-          Inventore mollitia numquam vel?`}
-          </p>
-        </main>
-        <footer></footer>
-      </>
+      <main className={`${className} space-y-base`}>
+        {text && <p>{text}</p>}
+
+        {action && <Button text={btn} />}
+      </main>
     )}
+
+    <footer>{footer}</footer>
   </article>
 );
 Card.propTypes = {
+  action: PropTypes.any,
+  base: PropTypes.any,
+  btn: PropTypes.any,
   children: PropTypes.any,
   className: PropTypes.string,
+  footer: PropTypes.any,
+  headline: PropTypes.any,
   onClick: PropTypes.any,
+  subheadline: PropTypes.any,
+  subtittle: PropTypes.any,
   text: PropTypes.string,
   tittle: PropTypes.string,
 };

@@ -10,7 +10,7 @@ const IntroductionSection = () => (
       className='absolute w-auto h-full -z-10'
     />
 
-    <main className='flex flex-col items-center justify-center w-full h-full text-center bg-light/75 dark:bg-dark/75 backdrop-blur px-lg'>
+    <main className='flex flex-col items-center justify-center w-full h-full text-center bg-light/75 dark:bg-dark/75 px-lg'>
       <h1>About Us</h1>
       <p className='max-w-600 line-clamp-3'>
         We are a team of passionate individuals committed to delivering the best services to our
@@ -57,20 +57,20 @@ const ValueSection = () => (
       <h2>Our Values</h2>
       <ul className='flex flex-col gap-sm'>
         <li>
-          <strong className='text-brand'>Integrity: </strong>We believe in doing the right thing,
-          always.
+          <h3 className='text-brand'>Integrity: </h3>
+          <p>We believe in doing the right thing, always.</p>
         </li>
         <li>
-          <strong className='text-brand'>Innovation: </strong>
-          We strive to be at the forefront of technological advancement.
+          <h3 className='text-brand'>Innovation: </h3>
+          <p>We strive to be at the forefront of technological advancement.</p>
         </li>
         <li>
-          <strong className='text-brand'>Customer Focus: </strong>{' '}
-          {`Our clients' satisfaction is our top priority.`}
+          <h3 className='text-brand'>Customer Focus: </h3>
+          <p>{`Our clients' satisfaction is our top priority.`}</p>
         </li>
         <li>
-          <strong className='text-brand'>Collaboration: </strong> We believe in the power of
-          teamwork.
+          <h3 className='text-brand'>Collaboration: </h3>
+          <p>We believe in the power of teamwork.</p>
         </li>
       </ul>
     </main>

@@ -15,7 +15,7 @@ const Button = ({ base, children, text = 'Button', link, className = '', onClick
         base
           ? ''
           : 'bg-brand text-light/90 hover:text-light active:bg-brand hover:bg-brand/50 font-bold'
-      } flex items-center rounded px-base py-sm ${className}`}
+      } flex items-center text-center justify-center rounded px-base py-sm gap-sm ${className}`}
     >
       {children || text}
     </Link>

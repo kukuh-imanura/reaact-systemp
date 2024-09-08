@@ -60,7 +60,7 @@ const AttributionSection = () => {
   const location = useLocation();
 
   // Daftar halaman di mana atribusi ingin ditampilkan
-  const showAt = ['/about'];
+  const showAt = ['/about', '/service'];
 
   return (
     <>
@@ -69,7 +69,7 @@ const AttributionSection = () => {
           href='http://storyset.com/business'
           target='_blank'
           rel='noopener noreferrer'
-          className='cursor-default hover:text-dark/20 dark:hover:text-light/20'
+          className='cursor-default hover:text-dark/10 dark:hover:text-light/10'
         >
           Business illustrations by Storyset
         </a>
@@ -121,7 +121,14 @@ export const Footer = () => (
       <p>Sumbawa, Nusa Tenggara Barat, 84382</p>
     </div>
     <div className='flex flex-wrap-reverse justify-center cursor-default select-none gap-x-base text-dark/10 dark:text-light/10'>
-      <p>© Copyright 2024 Kukuh Imanura</p>
+      <a
+        href='http://github.com/kukuh-imanura'
+        target='_blank'
+        rel='noopener noreferrer'
+        className='cursor-help hover:text-dark/10 dark:hover:text-light/10'
+      >
+        © Copyright 2024 Kukuh Imanura
+      </a>
       <AttributionSection />
     </div>
   </footer>

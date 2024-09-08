@@ -30,10 +30,26 @@ const FeatureSection = () => (
   <section className='flex flex-col items-center px-lg py-xl gap-lg'>
     <h2 className='text-center'>Our Features</h2>
 
-    <main className='flex flex-col justify-around w-full sm:flex-row'>
-      <Card tittle='Feature 1' />
-      <Card tittle='Feature 2' />
-      <Card tittle='Feature 3' />
+    <main className='flex flex-col justify-around w-full sm:flex-row gap-sm'>
+      <Card
+        tittle='Feature 1'
+        text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, unde? Neque esse cumque sit
+    iure quasi nulla voluptate incidunt ratione veniam iusto recusandae ipsum molestias atque qui,
+    possimus nihil ab!'
+      />
+      <Card
+        tittle='Feature 2'
+        text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eveniet corrupti modi odio magni
+    inventore ex aliquid impedit aut reiciendis eaque, nisi, ullam quaerat laudantium debitis nihil
+    repellat voluptatem maiores?'
+      />
+
+      <Card
+        tittle='Feature 3'
+        text='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam minus asperiores officiis
+      maxime adipisci consequuntur voluptas in repellendus reprehenderit sed nobis corrupti, ex
+      tempore iure laborum. Hic tempora nam voluptas.'
+      />
     </main>
   </section>
 );

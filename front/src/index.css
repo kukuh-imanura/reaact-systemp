@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  ::-webkit-scrollbar {
+    @apply rounded-full dark:bg-light/5 bg-dark/5;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-dark/50 dark:bg-light/50;
+  }
   html {
     @apply select-none scroll-smooth;
     scrollbar-gutter: stable;
@@ -11,7 +17,7 @@
     @apply text-dark dark:text-light bg-light dark:bg-dark;
   }
   h1 {
-    @apply text-lg font-black lg:text-xl;
+    @apply text-lg font-black leading-tight lg:text-xl;
   }
   h2 {
     @apply text-lg font-bold lg:text-xl;
