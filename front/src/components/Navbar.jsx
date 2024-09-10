@@ -7,7 +7,6 @@ const Main = () => (
     <ButtonNav link={'/'} text={'Home'} />
     <ButtonNav link={'/about'} text={'About'} />
     <ButtonNav link={'/service'} text={'Service'} />
-    <ButtonNav link={'/contact'} text={'Contact'} />
     <ButtonNav link={'/news'} text={'News'} />
   </nav>
 );

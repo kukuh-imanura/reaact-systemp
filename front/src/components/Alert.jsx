@@ -37,7 +37,7 @@ export const Alert = forwardRef(
 
     return ReactDOM.createPortal(
       <div
-        className={`${color[0]} hidden fixed top-base left-1/2 -translate-x-1/2 rounded min-w-3xl p-base z-[101] ${className}`}
+        className={`${color[0]} fixed top-base left-1/2 -translate-x-1/2 rounded min-w-3xl p-base z-[101] ${className}`}
         ref={ref}
         role='alert'
       >

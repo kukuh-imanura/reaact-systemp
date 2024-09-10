@@ -1,34 +1,36 @@
 import React, { forwardRef, useId } from 'react';
 import { PropTypes } from 'prop-types';
 
-const Input = forwardRef(({ type = 'text', text = 'Text', className = '', ...rest }, ref) => {
-  // ID
-  const id = useId();
+const Input = forwardRef(
+  ({ type = 'text', placeholder = 'Placeholder', className = '', ...rest }, ref) => {
+    // ID
+    const id = useId();
 
-  // LABEL
-  const label = type === 'email' ? 'Masukkan Email' : `Masukkan ${text}`;
+    // LABEL
+    const label = type === 'email' ? 'Masukkan Email' : `${placeholder}`;
 
-  return (
-    <div className='flex items-center gap-sm'>
-      <label htmlFor={id} className='sr-only'>
-        {label}
-      </label>
+    return (
+      <div className='flex items-center gap-sm'>
+        <label htmlFor={id} className='sr-only'>
+          {label}
+        </label>
 
-      <input
-        id={id}
-        type={type}
-        autoComplete={type}
-        placeholder={label}
-        className={`rounded py-sm px-base outline-brand ${className}`}
-        ref={ref}
-        {...rest}
-      />
-    </div>
-  );
-});
+        <input
+          id={id}
+          type={type}
+          autoComplete={type}
+          placeholder={label}
+          className={`rounded py-sm px-base outline-brand text-dark ${className}`}
+          ref={ref}
+          {...rest}
+        />
+      </div>
+    );
+  }
+);
 Input.propTypes = {
   className: PropTypes.string,
-  text: PropTypes.string,
+  placeholder: PropTypes.string,
   type: PropTypes.string,
 };
 Input.displayName = 'Input';

@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../../components/Card';
-import Button from '../../components/Button';
+import Card from '@components/Card';
+import Button from '@components/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Service/Product List: Daftar dengan deskripsi, ikon, dan mungkin harga.
@@ -38,7 +38,7 @@ const ServiceSection = () => (
       <div className='flex flex-col justify-center gap-base min-w-200 w-200'>
         <span className='rounded h-300 bg-brand/25'></span>
         <img
-          src='/public/img/storyset/Ecommerce web page-amico.svg'
+          src='/img/storyset/Ecommerce web page-amico.svg'
           alt='service'
           className='rounded h-300 bg-brand/25'
         />
@@ -162,7 +162,7 @@ const PointSection = () => (
 
       <div className='flex'>
         <img
-          src='/img/storyset/Winners-rafiki.svg'
+          src='/img/storyset/Questions-pana.svg'
           alt='questionmark'
           className='hidden h-3xl lg:px-xl sm:block'
         />

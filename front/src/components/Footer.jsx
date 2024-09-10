@@ -11,7 +11,6 @@ const NewsletterForm = () => {
   const {
     register,
     handleSubmit,
-    // watch,
     formState: { errors },
   } = useForm();
 
@@ -33,7 +32,13 @@ const NewsletterForm = () => {
       onSubmit={handleSubmit(onSubmit)}
       className='relative flex flex-wrap justify-center gap-sm'
     >
-      <Alert type='success' text='Subscribe Berhasil' onClick={toggleAlert} ref={alertRef} />
+      <Alert
+        type='success'
+        text='Subscribe Berhasil'
+        onClick={toggleAlert}
+        ref={alertRef}
+        className='hidden'
+      />
 
       <div>
         <Input
@@ -89,20 +94,25 @@ const Newsletter = () => (
   </div>
 );
 
-const Navigation = () => (
-  <div className='flex flex-wrap items-center justify-center'>
-    <Button base link={'/'} text={'Home'} />
-    <Button base link={'/about'} text={'About'} />
-    <Button base link={'/service'} text={'Service'} />
-    <Button base link={'/contact'} text={'Contact'} />
-    <Button base link={'/news'} text={'News'} />
-    <Button base link={'/faqs'} text={'FAQs'} />
-  </div>
-);
+const Navigation = () => {
+  const scrollTop = () => {
+    window.scrollTo({ top: 0 });
+  };
+
+  return (
+    <div className='flex flex-wrap items-center justify-center gap-lg'>
+      <Button base link={'/'} text={'Home'} onClick={scrollTop} />
+      <Button base link={'/about'} text={'About'} onClick={scrollTop} />
+      <Button base link={'/service'} text={'Service'} onClick={scrollTop} />
+      <Button base link={'/news'} text={'News'} onClick={scrollTop} />
+      <Button base link={'/faqs'} text={'FAQs'} onClick={scrollTop} />
+    </div>
+  );
+};
 
 const Social = () => (
   <div className='flex justify-center gap-base'>
-    <ButtonIcon icon={'fas fa-phone'} link={'https://wa.me/+1234567890'} />
+    <ButtonIcon icon={'fas fa-phone'} link={'tel:+6285339283538'} />
     <ButtonIcon icon={'fas fa-envelope'} link={'mailto:info@company.com'} />
     <ButtonIcon icon={'fab fa-facebook'} link={'https://facebook.com'} />
     <ButtonIcon icon={'fab fa-x-twitter'} link={'https://twitter.com'} />
@@ -116,10 +126,19 @@ export const Footer = () => (
     <hr className='border-dark/25 dark:border-light/25' />
     <Navigation />
     <Social />
-    <div className='flex flex-col items-center justify-center text-center gap-x-sm sm:flex-row text-nowrap'>
-      <p>123 Main Street, Suite 500.</p>
-      <p>Sumbawa, Nusa Tenggara Barat, 84382</p>
+
+    <div className='flex flex-col items-center justify-center text-center gap-sm'>
+      <div className='flex gap-base'>
+        <a href='/privacy-policy'>Privacy Policy</a>
+        <a href='/terms-of-service'>Terms of Service</a>
+        <a href='/contact'>Contact Us</a>
+      </div>
+      <div className='flex flex-wrap items-center justify-center gap-x-sm text-nowrap'>
+        <p>123 Main Street, Suite 500.</p>
+        <p>Sumbawa, Nusa Tenggara Barat, 84382</p>
+      </div>
     </div>
+
     <div className='flex flex-wrap-reverse justify-center cursor-default select-none gap-x-base text-dark/10 dark:text-light/10'>
       <a
         href='http://github.com/kukuh-imanura'

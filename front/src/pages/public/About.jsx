@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
-import { ButtonNav } from '../../components/Button';
-import { ProfileCard } from '../../components/Card';
+import React from 'react';
+import { ButtonNav } from '@components/Button';
+import { ProfileCard } from '@components/Card';
 
 const IntroductionSection = () => (
   <section className='relative flex items-center justify-center h-screen overflow-hidden -mt-xl pt-xl'>
@@ -21,7 +21,7 @@ const IntroductionSection = () => (
 );
 
 const VMSection = () => (
-  <section id='vm' className='relative flex items-center justify-center lg:items-start p-lg'>
+  <section id='vm' className='relative flex items-center justify-center lg:items-start px-lg pt-xl'>
     <img
       src='/img/storyset/Scope-rafiki.svg'
       alt='storyset'
@@ -51,7 +51,7 @@ const VMSection = () => (
 const ValueSection = () => (
   <section
     id='values'
-    className='relative flex items-center justify-center lg:justify-between p-lg gap-base'
+    className='relative flex items-center justify-center lg:justify-between px-lg py-xl gap-base'
   >
     <main className='flex flex-col w-full gap-base bg-light/50 dark:bg-dark/50'>
       <h2>Our Values</h2>
@@ -129,21 +129,12 @@ const HistorySection = () => (
 );
 
 const Sidebar = () => {
-  const scroll = useCallback((id) => {
-    const elem = document.getElementById(id);
-    const elementPosition = elem.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = elementPosition - 50; // Menggeser 50px ke atas dari elemen
-    window.scrollTo({
-      top: offsetPosition,
-    });
-  }, []);
-
   return (
-    <aside className='sticky hidden h-full md:block top-xl py-xl min-w-3xl'>
-      <ButtonNav side text='Vision & Mission' onClick={() => scroll('vm')} />
-      <ButtonNav side text='Values' onClick={() => scroll('values')} />
-      <ButtonNav side text='History' onClick={() => scroll('history')} />
-      <ButtonNav side text='Team' onClick={() => scroll('team')} />
+    <aside className='sticky top-0 hidden h-full md:block pt-2xl pb-xl min-w-3xl'>
+      <ButtonNav side text='Vision & Mission' link={'#vm'} />
+      <ButtonNav side text='Values' link={'#values'} />
+      <ButtonNav side text='History' link={'#history'} />
+      <ButtonNav side text='Team' link={'#team'} />
     </aside>
   );
 };
@@ -152,8 +143,10 @@ const About = () => {
   return (
     <main className='relative z-10 bg-light dark:bg-dark'>
       <IntroductionSection />
+
       <div className='flex h-full'>
         <Sidebar />
+
         <div>
           <VMSection />
           <ValueSection />

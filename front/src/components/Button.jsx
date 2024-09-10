@@ -14,8 +14,8 @@ const Button = ({ base, children, text = 'Button', link, className = '', onClick
       className={`${
         base
           ? ''
-          : 'bg-brand text-light/90 hover:text-light active:bg-brand hover:bg-brand/50 font-bold'
-      } flex items-center text-center justify-center rounded px-base py-sm gap-sm ${className}`}
+          : 'bg-brand text-light/90 hover:text-light active:bg-brand hover:bg-brand/50 font-bold px-base py-sm'
+      } flex items-center text-center justify-center rounded gap-sm ${className}`}
     >
       {children || text}
     </Link>
@@ -68,7 +68,15 @@ export const ButtonNav = ({
     : 'hover:border-b-2 hover:border-b-brand/50 active:border-b-brand';
   const sideClass = side ? 'sm:px-base px-lg' : 'px-base h-full';
 
-  return (
+  return link?.includes('#') ? (
+    <a
+      href={link}
+      onClick={onClick}
+      className={`${activeClass} ${nonActiveClass} ${sideClass} py-sm items-center flex ${className} `}
+    >
+      {children || text}
+    </a>
+  ) : (
     <NavLink
       to={link}
       onClick={onClick}

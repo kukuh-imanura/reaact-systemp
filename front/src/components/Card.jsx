@@ -65,7 +65,11 @@ Card.propTypes = {
 };
 
 export const CardImage = ({
+  action,
+  btn = 'Read More',
   img = '/img/bg/1.jpg',
+  children,
+  date,
   tittle = 'CardImage',
   text = 'Image Card, used for News',
   className = '',
@@ -76,14 +80,24 @@ export const CardImage = ({
     onClick={onClick}
   >
     <img src={img} alt='bg' className='object-cover h-full' />
-    <main className='absolute top-0 flex flex-col justify-end w-full h-full bg-gradient-to-t from-dark to-transparent text-light p-base'>
-      <h3>{tittle}</h3>
-      <p>{text}</p>
-    </main>
+    {children || (
+      <main className='absolute top-0 flex flex-col justify-end w-full h-full bg-gradient-to-t from-dark to-transparent text-light p-base gap-sm'>
+        <div>
+          <p className='font-light leading-none'>{date}</p>
+          <h3>{tittle}</h3>
+        </div>
+        <p className='leading-tight opacity-50 line-clamp-3'>{text}</p>
+        {action && <Button base text={btn} className='w-fit' />}
+      </main>
+    )}
   </article>
 );
 CardImage.propTypes = {
+  action: PropTypes.any,
+  btn: PropTypes.string,
+  children: PropTypes.any,
   className: PropTypes.string,
+  date: PropTypes.any,
   img: PropTypes.string,
   onClick: PropTypes.any,
   text: PropTypes.string,
